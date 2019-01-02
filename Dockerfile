@@ -1,7 +1,7 @@
 FROM centos:7
 
 # http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/
-ARG NGINX_VERSION=1.15.5-1.el7_4.ngx
+ARG NGINX_VERSION=1.15.8-1.el7_4.ngx
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
@@ -12,7 +12,7 @@ RUN curl -sO http://nginx.org/keys/nginx_signing.key && \
     rm -f ./nginx_signing.key && \
     # change permissions
     chmod -R 770 /var/cache/nginx/  && \
-    # listen on 8080 instead of 80
+    # listen on 8080 as well as 80
     sed -i -e '/listen/!b' -e '/80;/!b' -e 's/80;/8080;/' /etc/nginx/conf.d/default.conf && \
     sed -i -e '/user/!b' -e '/nginx/!b' -e '/nginx/d' /etc/nginx/nginx.conf && \
     # place pid file under /var/cache/nginx
@@ -23,6 +23,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/cache/nginx"]
+VOLUME ["/var/log/nginx"]
 
 EXPOSE 80 8080 443
 
