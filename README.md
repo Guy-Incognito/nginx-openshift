@@ -14,6 +14,7 @@ Tags refer to the nginx version in use:
 * 1.15.2-1.el7_4.ngx [Dockerfile](https://github.com/Guy-Incognito/nginx-openshift/blob/1.15.2-1.el7_4.ng/Dockerfile)
 * 1.15.5-1.el7_4.ngx [Dockerfile](https://github.com/Guy-Incognito/nginx-openshift/blob/1.15.5-1.el7_4.ngx/Dockerfile)
 * 1.15.8-1.el7_4.ngx [Dockerfile](https://github.com/Guy-Incognito/nginx-openshift/blob/1.15.8-1.el7_4.ngx/Dockerfile)
+* 1.17.8-1.el7.ngx [Dockerfile](https://github.com/Guy-Incognito/nginx-openshift/blob/1.17.8-1.el7.ngx/Dockerfile)
 
 ## How to build
 
