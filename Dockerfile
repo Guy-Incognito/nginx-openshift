@@ -1,15 +1,10 @@
-FROM centos:7
+FROM centos:8
 
-# http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/
-ARG NGINX_VERSION=1.17.8-1.el7.ngx
+# http://nginx.org/packages/mainline/centos/8/x86_64/RPMS/
+ARG NGINX_VERSION=1.17.8-1.el8.ngx
 
-ADD nginx.repo /etc/yum.repos.d/nginx.repo
-
-RUN curl -sO http://nginx.org/keys/nginx_signing.key && \
-    rpm --import ./nginx_signing.key && \
-    yum install -y nginx-${NGINX_VERSION} && \
-    yum clean all && \
-    rm -f ./nginx_signing.key && \
+RUN dnf install -y http://nginx.org/packages/mainline/centos/8/x86_64/RPMS/nginx-${NGINX_VERSION}.x86_64.rpm && \
+    dnf clean all && \
     # change permissions
     chmod -R 770 /var/cache/nginx/  && \
     # listen on 8080 as well as 80
