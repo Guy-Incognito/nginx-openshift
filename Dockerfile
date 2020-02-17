@@ -1,7 +1,7 @@
 FROM centos:7
 
 # http://nginx.org/packages/mainline/centos/7/x86_64/RPMS/
-ARG NGINX_VERSION=1.15.8-1.el7_4.ngx
+ARG NGINX_VERSION=1.17.8-1.el7.ngx
 
 ADD nginx.repo /etc/yum.repos.d/nginx.repo
 
